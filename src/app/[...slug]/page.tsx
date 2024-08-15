@@ -8,7 +8,7 @@ type Pops = {
         slug: string;
     }
 }
-
+/*
 export async function generateMetaData({params}: Pops): Promise<Metadata> {
     const page = await getPageBySlug(params.slug);
 
@@ -20,7 +20,7 @@ export async function generateMetaData({params}: Pops): Promise<Metadata> {
         description: metadata.metaDescription,
     }
 }
-
+*/
 export default async function PageRoute({params}: Pops) {
     const page = await getPageBySlug(params.slug);
     if(page.data.length === 0) return null;
