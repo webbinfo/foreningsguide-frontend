@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-mint;
+  @apply text-sm;
+}
+
+a {
+ @apply underline; 
+}
+
+.no-underline-links a {
+  @apply no-underline;
+}
+
+ol {
+  list-style: decimal;
+  margin-left: 1.5em;
+}
+
+/* Kanske lite tramsigt, isf ändra till list-style disc */
+ul {
+  list-style: image-set(url("favicon.ico") 16x);
+  margin-left: 1.5em;
+}
+
+ul.no-bullet {
+  list-style: none;
+}
+
+h1 {
+  @apply text-4xl font-bold;
+}
+
+h2 {
+  @apply text-xl font-bold;
+}
+
+h3 {
+  @apply text-lg font-bold;
+}
+
+h4 {
+  @apply text-2xl font-bold;
+}
+
+p {
+  @apply text-sm;
+}
+
+.hl-text {
+  @apply text-coral;
+}
+
+.masonry-grid {
+  column-count: 1; /* Default to 1 column for smaller screens */
+  column-gap: 16px; /* Adjust gap between columns */
+}
+
+@media (min-width: 768px) {
+  .masonry-grid {
+    column-count: 2; /* 2 columns for medium screens */
+  }
+}
+
+@media (min-width: 1024px) {
+  .masonry-grid {
+    column-count: 3; /* 3 columns for large screens */
+  }
+}
+
+@media (min-width: 1536px) {
+  .masonry-grid {
+    column-count: 4; /* 4 columns for extra large screens */
+  }
+}
+
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 16px; /* Adjust margin between items */
+}
