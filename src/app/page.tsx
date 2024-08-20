@@ -8,7 +8,8 @@ export default async function RootRoute() {
     if (page.error && page.error.status == 401)
       throw new Error("Unauthorized");
 
-    if (!page){
+    if (!page.data){
+      console.log(page.data)
       if (page.data.length === 0) return null;
     }
 
