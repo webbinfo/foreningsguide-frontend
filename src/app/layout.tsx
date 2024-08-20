@@ -72,6 +72,7 @@ export default async function RootLayout({
 
   return (
     <html lang='sv'>
+      <meta name="robots" content="noindex" />
       <body>
         <Navbar
           links={navbar.links}
