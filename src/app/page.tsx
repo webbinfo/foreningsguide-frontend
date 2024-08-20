@@ -8,10 +8,8 @@ export default async function RootRoute() {
     if (page.error && page.error.status == 401)
       throw new Error("Unauthorized");
 
-    if (!page.data){
-      console.log(page.data)
-      if (page.data.length === 0) return null;
-    }
+    console.log(page)
+    if (!page || !page.data || page.data.length === 0) return null;
 
     const contentSections = page.data[0].attributes.content;
     return contentSections.map((section: any, index: number) => 
