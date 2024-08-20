@@ -21,6 +21,7 @@ export async function generateMetaData({params}: Pops): Promise<Metadata> {
     }
 }
 */
+
 export default async function PageRoute({params}: Pops) {
     const page = await getPageBySlug(params.slug);
     if(page.data.length === 0) return null;
