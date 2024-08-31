@@ -77,7 +77,7 @@ export default async function Course({ data }: { data: CourseProps }) {
                         {/* Display TOC at the top for smaller screens */}
                         <TOC data={contentSections} />
                     </div>
-                    <div className="lg:pt-4 w-11/12 xl:w-full mx-4">
+                    <div className="lg:pt-4 w-11/12 mx-4">
                         {contentSections && contentSections.map((section: any, index: number) => (
                             sectionRenderer(section, index) //, dictionaryItems)
                         ))}
@@ -89,7 +89,7 @@ export default async function Course({ data }: { data: CourseProps }) {
                     </div>
                 </div>
                 {/* Sticky TOC for screens larger than xl */}
-                <div className="hidden xl:pt-4 xl:block xl:sticky xl:top-24 xl:right-12 xl:w-full xl:h-full">
+                <div className="hidden xl:pt-4 xl:block xl:sticky xl:top-24 xl:right-12 2xl:right-0 xl:w-full 2xl:w-4/5 xl:h-full">
                     <TOC data={contentSections} />
                 </div>
             </div>

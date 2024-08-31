@@ -8,23 +8,43 @@ import { sectionRenderer } from "../utils/section-renderer";
 import DictionaryItems from "../components/DictionaryItem";
 import Button from "../components/Button";
 
-// Implemented pagination, even though it is not needed atm
+interface Meta {
+    pagination: {
+        start: number;
+        limit: number;
+        total: number;
+    }
+}
+
+const PAGE_SIZE = 24;
+
 export default function RootLayout() {
     const [contentData, setContentData] = useState<any>([]);
     const [pageData, setPageData] = useState<any>([]);
     const [isLoading, setLoading] = useState(true);
+    const [meta, setMeta] = useState<Meta | undefined>();
 
-    const fetchData = useCallback(async () => {
+    const fetchData = useCallback(async (start: number, limit: number) => {
         setLoading(true);
         try {
             const token = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
             const path = "/dictionaries";
             const urlParamsObject = {
                 sort: { word: 'asc' },
+                pagination: {
+                    start,
+                    limit
+                },
             };
 
             const options = { headers: { Authorization: `Bearer ${token}` } };
             const response = await fetchAPI(path, urlParamsObject, options);
+            if (start == 0) {
+                setContentData(response.data);
+            } else {
+                setContentData((prevData: any[]) => [...prevData, ...response.data]);
+            }
+            setMeta(response.meta);
             setContentData(response.data);
 
             const page = await getPageBySlug("ordlista")
@@ -37,8 +57,13 @@ export default function RootLayout() {
         }
     }, []);
 
+    function loadMoreCourses(): void {
+        const nextCourses = meta!.pagination.start + meta!.pagination.limit;
+        fetchData(0, nextCourses+Number(PAGE_SIZE));
+    }
+
     useEffect(() => {
-        fetchData();
+        fetchData(0, Number(PAGE_SIZE));
     }, [fetchData]);
 
     if (isLoading) return <Loader />;
@@ -55,13 +80,13 @@ export default function RootLayout() {
                     </div>
                 ))}
             </div>
-            {/*<div className="pb-8">
+            <div className="pb-8">
                 {meta!.pagination.total >= meta!.pagination.start + meta!.pagination.limit &&
                     <div onClick={loadMoreCourses}>
                         <Button id={1337} text={"Läs in fler ord"} newTab={false} link="#" type={"Solid"} />
                     </div>
                 }
-            </div>*/}
+            </div>
         </div>
     )
 }

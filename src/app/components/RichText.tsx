@@ -69,7 +69,7 @@ export default function RichText({ content, checkDict = false, dictionaryItems =
           return (
             <div className="relative flex flex-col m-4">
               <i className="absolute top-0 left-0 text-4xl transform -translate-y-4">“</i>
-              <p className="text-sm pt-4 px-8">{children}</p>
+              <p className="pt-4 px-8">{children}</p>
               <i className="absolute bottom-0 right-0 text-4xl transform rotate-180 translate-y-4">”</i>
             </div>
           );
