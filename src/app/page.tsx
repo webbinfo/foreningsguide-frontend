@@ -7,8 +7,7 @@ export default async function RootRoute() {
     const page = await getPageBySlug('hem');
     if (page.error && page.error.status == 401)
       throw new Error("Unauthorized");
-
-    console.log(page)
+    
     if (!page || !page.data || page.data.length === 0) return null;
 
     const contentSections = page.data[0].attributes.content;

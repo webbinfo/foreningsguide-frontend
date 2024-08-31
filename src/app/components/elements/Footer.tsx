@@ -119,7 +119,7 @@ export default function Footer(src: FooterProps) {
         <div className="bg-white">
             <footer className="bg-footer-gradient-coral">
                 <div className="bg-footer-gradient-black w-full h-full text-white p-8 text-center">
-                    <div className="flex flex-col sm:flex-row items-center justify-center sm:items-start">
+                    <div className="flex flex-col sm:flex-row items-center justify-center sm:items-start xl:px-24">
                         <LeftFooter data={src.data.left} />
                         <MiddleFooter data={src.data} />
                         <RightFooter data={src.data.right} />

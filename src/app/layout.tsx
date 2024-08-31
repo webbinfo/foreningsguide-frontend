@@ -81,7 +81,7 @@ export default async function RootLayout({
           button={navbar.button}
         />
 
-        <main className="min-h-screen">
+        <main>
           {children}
         </main>
 

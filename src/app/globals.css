@@ -46,8 +46,8 @@ h4 {
   @apply text-2xl font-bold;
 }
 
-p {
-  @apply text-sm;
+p, a, li {
+  @apply text-sm lg:text-lg;
 }
 
 .hl-text {
