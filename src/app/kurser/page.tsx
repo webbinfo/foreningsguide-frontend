@@ -90,6 +90,7 @@ export default function RootLayout() {
 
     if (isLoading) return <Loader />;
 
+    console.log(data)
     return (
         <div className="flex flex-col bg-white justify-center items-center text-left pb-8 md:text-center">
             {pageData.map((section: any, index: number) => 
@@ -104,7 +105,7 @@ export default function RootLayout() {
                     <CourseCard 
                         key={course.id}
                         id={course.id} 
-                        name={course.id + " " + course.attributes.name} 
+                        name={course.attributes.order + " " + course.attributes.name} 
                         slug={course.attributes.slug} 
                         introduction={course.attributes.introduction} 
                         coverImage={course.attributes.coverImage}

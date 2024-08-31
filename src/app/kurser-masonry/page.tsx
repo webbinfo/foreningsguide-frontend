@@ -81,7 +81,7 @@ export default function RootLayout() {
                     <div key={course.id} className="masonry-item">
                         <CourseCard
                             id={course.id}
-                            name={course.id + " " + course.attributes.name}
+                            name={course.attributes.order + " " + course.attributes.name}
                             slug={course.attributes.slug}
                             introduction={course.attributes.introduction}
                             coverImage={course.attributes.coverImage}

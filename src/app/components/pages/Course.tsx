@@ -79,7 +79,7 @@ export default async function Course({ data }: { data: CourseProps }) {
                     </div>
                     <div className="lg:pt-4 w-11/12 mx-4">
                         {contentSections && contentSections.map((section: any, index: number) => (
-                            sectionRenderer(section, index) //, dictionaryItems)
+                            sectionRenderer(section, index)//, dictionaryItems)
                         ))}
                     </div>
                     <div className="w-full flex justify-center">
