@@ -35,7 +35,7 @@ export default function DictionaryItem({ word, definition, index, aliases }: Dic
     <div id={word.toLowerCase()} className={`mx-auto w-full max-w-lg divide-y divide-coral/5 ${colorMapper(index)} rounded-lg  mb-4`}>
       <Disclosure as='div' className='p-6' id={word.toLowerCase()}>
         <DisclosureButton className="group flex w-full items-center justify-between">
-          <span className='text-sm/6 font-medium '>
+          <span className='text-lg font-medium '>
             {word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()}
           </span>
           <ChevronDownIcon className="size-5 group-data-[open]:rotate-180" />
