@@ -53,7 +53,7 @@ export default async function Course({ data }: { data: CourseProps }) {
 
     const contentSections = data.attributes.content;
 
-    //const dictionaryItems = await getDictionary();
+    //const dictionaryItems = getDictionary();
 
     const handleButtonClick = () => {
         const slug = data.attributes.slug;

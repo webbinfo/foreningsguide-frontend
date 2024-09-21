@@ -22,6 +22,9 @@ export function CookieDialog({ data }: CookieProps) {
         if (consent === "true") {
             setIsCookieConsent(true);
             setIsOpen(false);
+            updateGoogleConsent("granted");
+        } else {
+            updateGoogleConsent("denied");
         }
     }, []);
 
@@ -29,11 +32,22 @@ export function CookieDialog({ data }: CookieProps) {
         Cookies.set("cookieConsent", "true", { expires: 365 });
         setIsCookieConsent(true);
         setIsOpen(false);
+        updateGoogleConsent("granted");
     };
 
     const handleClose = () => {
-        setIsOpen(false);
+        // Disabled to prevent user from not accepting cookies
+        //setIsOpen(false);
     }
+
+    const updateGoogleConsent = (consentStatus: string) => {
+        if (typeof window !== "undefined") {
+            window.gtag('consent', 'update', {
+                ad_storage: consentStatus,
+                analytics_storage: consentStatus,
+            });
+        }
+    };
 
     return (
         <Dialog open={isOpen} as="div" className={"relative z-50 "} onClose={handleClose}>

@@ -57,14 +57,14 @@ export default function RichText({ content, checkDict = false, dictionaryItems =
           return React.createElement(`h${level}`, {}, children);
         },
         // Funkar lite halvbra nu, lägger till en ny rad efter länkar
-        /* paragraph: ({ children }) => {
-          if (checkDict && dictionaryItems) {
+         paragraph: ({ children }) => {
+          if (checkDict && dictionaryItems.length > 0) {
             const content = addDictHighlight(children, dictionaryItems)
             return <p>{content}</p>
           } else {
             return <p>{children}</p>
           }
-        },*/
+        },
         quote: ({ children }) => {
           return (
             <div className="relative flex flex-col m-4">

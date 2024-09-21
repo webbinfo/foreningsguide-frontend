@@ -90,7 +90,6 @@ export default function RootLayout() {
 
     if (isLoading) return <Loader />;
 
-    console.log(data)
     return (
         <div className="flex flex-col bg-white justify-center items-center text-left pb-8 md:text-center">
             {pageData.map((section: any, index: number) => 

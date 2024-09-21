@@ -48,7 +48,7 @@ function LeftFooter(data: LeftFooterProps) {
             <div className="pb-8">
                 <RichText content={data.data.content} />
             </div>
-            <Image src={imgURL || ""} alt={data.data.euLogo.data.attributes.alternativeText || "EU logo"} width={160} height={40} />
+            <Image src={imgURL || ""} alt={data.data.euLogo.data.attributes.alternativeText || "KOMBO Logo"} width={160} height={40} />
         </div>
     );
 }

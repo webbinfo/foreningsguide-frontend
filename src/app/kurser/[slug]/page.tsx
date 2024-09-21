@@ -43,6 +43,6 @@ export default async function CourseRoute({ params }: { params: { slug: string }
     const { slug } = params;
     const data = await getCourseBySlug(slug);
 
-    if (data.data.length === 0) return <h2>No course found</h2>;
+    if (data.data.length === 0) return <h2>Inga kurser hittades</h2>;
     return <Course data={data.data[0]} />;
 }
