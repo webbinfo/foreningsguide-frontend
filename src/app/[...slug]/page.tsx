@@ -3,6 +3,7 @@ import { Metadata } from "next";
 import { FALLBACK_SEO } from "../utils/constants";
 import { sectionRenderer } from "../utils/section-renderer";
 import { ReactNode } from "react";
+import { notFound } from "next/navigation";
 
 type Pops = {
     params: {
@@ -13,7 +14,8 @@ type Pops = {
 export async function generateMetadata({params}: Pops): Promise<Metadata> {
     const page = await getPageBySlug(params.slug);
 
-    if (!page.data[0].attributes?.seo) return FALLBACK_SEO;
+
+    if (page.data.length == 0 || !page.data[0].attributes?.seo) return FALLBACK_SEO;
     const metadata = page.data[0].attributes.seo;
 
     return {
@@ -25,7 +27,7 @@ export async function generateMetadata({params}: Pops): Promise<Metadata> {
 
 export default async function PageRoute({ params }: Pops): Promise<ReactNode> {
     const page = await getPageBySlug(params.slug);
-    if(page.data.length === 0) return null;
+    if(page.data.length === 0) return notFound(); // Return 404 page if page not found
 
     const contentSections = page.data[0].attributes.contentSections;
 
