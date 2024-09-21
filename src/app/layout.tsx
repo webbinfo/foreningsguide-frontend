@@ -7,6 +7,7 @@ import { FALLBACK_SEO } from "./utils/constants";
 import Footer from "./components/elements/Footer";
 import Banner from "./components/elements/Banner";
 import { CookieDialog } from "./components/elements/CookieDialog";
+import Script from "next/script";
 
 async function getConfig(): Promise<any> {
   const token = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
@@ -72,12 +73,33 @@ export default async function RootLayout({
 
   return (
     <html lang='sv'>
-      <meta name="robots" content="noindex" />
+      <head>
+        <meta name="robots" content="noindex" />
+
+        {/* Google Analytics Script */}
+        <Script
+          strategy="afterInteractive"
+          src={`https://www.googletagmanager.com/gtag/js?id=G-9DCPGVWMP8`}
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-9DCPGVWMP8');
+        `}
+      </Script>
+        <link rel="icon" href={navbarLogoUrl ?? "/favicon.ico"}/>
+        <link rel="apple-touch-icon" href={navbarLogoUrl ?? "/favicon.ico"}/>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"/>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap"/>
+      </head>
       <body>
         <Navbar
           links={navbar.links}
           logoUrl={navbarLogoUrl}
-          logoText={"- " + navbar.logo.title}
+          logoText={navbar.logo.title}
           button={navbar.button}
         />
 
