@@ -11,15 +11,17 @@ interface DictionaryItemProps {
 }
 
 function colorMapper(index: number) {
+  const black = " text-black group-data-[hover]:text-black/80";
+  
   switch (index % 4) {
     case 0:
-      return 'bg-coral text-black group-data-[hover]:text-black/80';
+      return 'bg-coral' + black;
     case 1:
-      return 'bg-mint text-black group-data-[hover]:text-black/80';
+      return 'bg-mint' + black;
     case 2:
-      return 'bg-chalk text-black group-data-[hover]:text-black/80';
+      return 'bg-chalk' + black;
     default:
-      return 'bg-yellow text-black group-data-[hover]:text-black/80';
+      return 'bg-yellow' + black;
   }
 }
 
