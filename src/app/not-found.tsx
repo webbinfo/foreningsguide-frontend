@@ -22,7 +22,7 @@ export default function NotFound() {
     }, [fetchData]);
 
     return (
-        <div className="py-12 min-h-[calc(50vh)] bg-white flex align-middle items-center">
+        <div className="py-12 min-h-[calc(50vh)] bg-white">
              {pageData && pageData.map((section: any, index: number) =>
                 sectionRenderer(section, index)
             )}

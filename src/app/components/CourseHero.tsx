@@ -16,7 +16,7 @@ export default function CourseHero({ data }: HeroProps) {
             {/* Text Content */}
             <div className="absolute top-0 right-0 z-20 opacity-70 w-1/2 sm:w-1/4 h-24"></div>
             <div className="relative z-10 flex items-center justify-center h-full mx-auto xl:mx-8 px-4 sm:px-6 lg:px-8">
-                <Link href="/kurser" className="text-white absolute top-4 left-4 xl:left-0 z-30 no-underline">
+                <Link href="/guider" className="text-white absolute top-4 left-4 xl:left-0 z-30 no-underline">
                     <span className="inline-flex flex-row justify-start items-center">
                         <ArrowLeftIcon className="h-4 w-4" /> Tillbaka till kursvyn
                     </span>

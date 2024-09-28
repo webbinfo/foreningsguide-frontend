@@ -18,6 +18,7 @@ export interface ButtonProps {
     link: string;
     icon?: string | undefined;
     type: 'Hollow' | 'Solid';
+    divBG?: string | undefined;
 }
 
 export interface Picture {
@@ -73,7 +74,7 @@ export interface FooterProps {
             id: number;
             heading: string;
             content: BlocksContent;
-            euLogo: Picture;
+            sponsoredLogo: Picture;
         },
         right: {
             id: number;
@@ -97,6 +98,16 @@ export interface BlobWithBGProps {
     content: BlocksContent;
     image: MediaProps;
     buttons?: Array<ButtonProps>;
+}
+
+export interface BlobHomepageProps {
+    heading: string;
+    anchor: string;
+    content: any;
+    image?: any;
+    buttons?: Array<ButtonProps>;
+    imagePosition?: 'Left' | 'Right';
+    blobColor: string;
 }
 
 export interface CourseTextBlockProps {
@@ -144,4 +155,5 @@ export interface TwoColProps {
     leftColumnWidth: number;
     leftContent: BlocksContent;
     rightContent: BlocksContent;
+    buttons: Array<ButtonProps>;
 }

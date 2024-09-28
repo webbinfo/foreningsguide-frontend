@@ -24,12 +24,30 @@ function parseIcon(icon: string | undefined) {
   }
 }
 
-export default function Button({ text, link, newTab, type, icon }: ButtonProps) {
+function colormapper(divBG: string | undefined, type: string) {
+
+  switch (divBG?.toLowerCase()) {
+    case "korall":
+      if (type == 'Solid') {
+        return 'bg-mint hover:bg-mint-dark text-white'
+      }
+      else {
+        return 'bg-transparent text-white border-mint border-2 hover:bg-mint hover:text-black'
+      }
+
+    default:
+      if (type == 'Solid') {
+        return 'bg-coral hover:bg-coral-dark text-white'
+      } else {
+        return 'bg-transparent text-white hover:bg-coral hover:text-white border-coral border-2'
+      }
+  }
+}
+
+export default function Button({ text, link, newTab, type, icon, divBG }: ButtonProps) {
   return (
     <Link href={link} target={newTab ? '_blank' : '_self'} passHref className='no-underline'>
-      <div className={`flex justify-center items-center px-12 py-2 font-semibold rounded-full cursor-pointer ${type === 'Solid' ?
-        'bg-coral hover:bg-coral-dark text-white' :
-        'text-black hover:bg-coral hover:text-white border-coral border-2'}`}>
+      <div className={`flex justify-center items-center px-12 py-2 font-semibold  rounded-full cursor-pointer ${colormapper(divBG, type)}`}>
         {icon != "Pil" && icon != undefined ? (
           <span className="mr-2">
             {parseIcon(icon)}

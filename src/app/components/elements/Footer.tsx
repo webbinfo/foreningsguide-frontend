@@ -11,7 +11,7 @@ interface LeftFooterProps {
         id: number;
         heading: string;
         content: BlocksContent;
-        euLogo: Picture;
+        sponsoredLogo: Picture;
     }
 }
 
@@ -40,7 +40,7 @@ interface RightFooterProps {
 }
 
 function LeftFooter(data: LeftFooterProps) {
-    const imgURL = getStrapiMedia(data.data.euLogo.data.attributes.url);
+    const imgURL = getStrapiMedia(data.data.sponsoredLogo.data.attributes.url);
 
     return (
         <div className="flex flex-col items-center sm:text-left sm:items-start w-full pb-8 sm:w-1/5 sm:pb-0">
@@ -48,7 +48,7 @@ function LeftFooter(data: LeftFooterProps) {
             <div className="pb-8">
                 <RichText content={data.data.content} />
             </div>
-            <Image src={imgURL || ""} alt={data.data.euLogo.data.attributes.alternativeText || "KOMBO Logo"} width={160} height={40} />
+            <Image src={imgURL || ""} alt={data.data.sponsoredLogo.data.attributes.alternativeText || "KOMBO Logo"} width={160} height={40} />
         </div>
     );
 }

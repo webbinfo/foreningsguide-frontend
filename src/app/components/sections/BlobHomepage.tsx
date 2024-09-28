@@ -1,18 +1,18 @@
 import { blobMapper } from "@/app/utils/colormapper";
-import { BlobWithBGProps } from "../../utils/interfaces";
 import Media from "../Media";
 import RichText from "../RichText";
 import Button from "../Button";
+import { BlobHomepageProps } from "../../utils/interfaces";
 
-export default function BlobWithBG({ background, layout, blobColor, heading, anchor, content, image, buttons }: BlobWithBGProps) {
+export default function BlobHomepage({heading, anchor, content, image, buttons, imagePosition, blobColor }: BlobHomepageProps) {
 
     let imgLeft = false
-    if (layout === 'Image to left' || layout === 'Image to left (with shape)') {
+    if (imagePosition === 'Left') {
         imgLeft = true
     }
 
     return (
-        <section id={anchor} className={`relative ${blobMapper(background)} py-8`}>
+        <section id={anchor} className={`relative py-8 bg-white`}>
             <div className={`${blobMapper(blobColor)} rounded-xl flex flex-col sm:flex-row p-8 py-8 mx-8 sm:mx-24 text-center sm:text-left items-center`}>
                 {image && imgLeft && (
                     <div className="w-full h-full mr-12">

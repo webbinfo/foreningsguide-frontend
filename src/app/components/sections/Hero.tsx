@@ -20,8 +20,8 @@ export default function Hero({ data }: HeroProps) {
                     <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white w-full md:w-11/12 xl:w-full">
                         {data.heading}
                     </h1>
-                    <p className="mt-4 text-lg sm:text-xl lg:text-2xl text-white w-full sm:w-3/4">
-                        {data.subheading}
+                    <p className="mt-4 italic sm:text-2xl lg:text-3xl text-white w-full sm:w-3/4">
+                        - {data.subheading}
                     </p>
                 </div>
             </div>

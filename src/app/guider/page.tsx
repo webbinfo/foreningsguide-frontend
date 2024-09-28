@@ -68,7 +68,7 @@ export default function RootLayout() {
             }
 
             setMeta(response.meta);
-            const page = await getPageBySlug("kurser")
+            const page = await getPageBySlug("guider")
             const contentSections = page.data[0].attributes.content;
             setPageData(contentSections);
         } catch (error: any) {

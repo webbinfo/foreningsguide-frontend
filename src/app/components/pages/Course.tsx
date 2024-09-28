@@ -58,7 +58,7 @@ export default async function Course({ data }: { data: CourseProps }) {
     const handleButtonClick = () => {
         const slug = data.attributes.slug;
         handleCompleteCourse(slug);
-        router.push('/kurser'); // Redirect to the parent page
+        router.push('/guider'); // Redirect to the parent page
     };
 
     return (
@@ -84,7 +84,7 @@ export default async function Course({ data }: { data: CourseProps }) {
                     </div>
                     <div className="w-full flex justify-center">
                         <div onClick={handleButtonClick} className="cursor-pointer">
-                            <Button id={data.id} text="Avsluta kurs" link="/kurser" type="Solid" newTab={false} />
+                            <Button id={data.id} text="Avsluta kurs" link="/guider" type="Solid" newTab={false} />
                         </div>
                     </div>
                 </div>

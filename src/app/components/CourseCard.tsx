@@ -32,7 +32,7 @@ export default function CourseCard({ name, slug, introduction, coverImage, compl
                 <p className="pb-4 flex-grow">{introduction}</p>
                 <div className="mt-auto">
                     <div className="w-full flex justify-center">
-                        <Button id={id} text="Starta kursen" link={`kurser/${slug}`} type="Solid" newTab={false} icon={"Pil"} />
+                        <Button id={id} text="Starta kursen" link={`guider/${slug}`} type="Solid" newTab={false} icon={"Pil"} />
                     </div>
                     {completed && (
                         <div className="flex justify-center items-center pt-4">

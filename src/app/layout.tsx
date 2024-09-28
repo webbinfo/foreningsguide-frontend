@@ -26,7 +26,7 @@ async function getConfig(): Promise<any> {
       "notificationBanner",
       "notificationBanner.link",
       "footer.left",
-      "footer.left.euLogo",
+      "footer.left.sponsoredLogo",
       "footer.right",
       "footer.middleTopTitle",
       "footer.middleTopLogos.image",
