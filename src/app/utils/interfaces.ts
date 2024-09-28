@@ -21,6 +21,12 @@ export interface ButtonProps {
     divBG?: string | undefined;
 }
 
+export interface ButtonGroupProps {
+    buttons?: Array<ButtonProps>;
+    divBG?: string | undefined;
+    float?: 'start' | 'right' | 'end';
+}
+
 export interface Picture {
     data: {
         id: string;

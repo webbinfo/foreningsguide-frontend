@@ -43,7 +43,7 @@ function LeftFooter(data: LeftFooterProps) {
     const imgURL = getStrapiMedia(data.data.sponsoredLogo.data.attributes.url);
 
     return (
-        <div className="flex flex-col items-center sm:text-left sm:items-start w-full pb-8 sm:w-1/5 sm:pb-0">
+        <div className="flex flex-col items-center md:text-left w-full pb-8 md:w-1/5 md:pb-0">
             <h2 className="text-m font-bold pb-4">{data.data.heading}</h2>
             <div className="pb-8">
                 <RichText content={data.data.content} />
@@ -58,7 +58,7 @@ function MiddleFooter(data: MiddleFooterProps) {
     const logoHeight = 40;
 
     return (
-        <div className="flex flex-col w-full mx-8 pb-8 sm:text-left sm:items-start sm:w-2/5 sm:pb-0 sm:ml-24">
+        <div className="flex flex-col w-full mx-8 pb-8 md:text-left md:w-2/5 md:pb-0 md:ml-24">
             <h2 className="text-m font-bold pb-4">{data.data.middleTopTitle}</h2>
             <div className="grid grid-cols-3 gap-4 sm:flex sm:flex-row">
                 {data.data.middleTopLogos.map((logo) => (
@@ -100,7 +100,7 @@ function MiddleFooter(data: MiddleFooterProps) {
 
 function RightFooter(data: RightFooterProps) {
     return (
-        <div className="flex flex-col w-full pb-8 sm:text-left sm:items-start sm:w-2/5 sm:pb-0 sm:ml-24">
+        <div className="flex flex-col w-full pb-8 md:text-left md:w-2/5 md:pb-0 md:ml-24">
             <h2 className="text-m font-bold pb-4">{data.data.heading}</h2>
             <div className="b-8">
                 <RichText content={data.data.content} />
@@ -119,7 +119,7 @@ export default function Footer(src: FooterProps) {
         <div className="bg-white">
             <footer className="bg-footer-gradient-coral">
                 <div className="bg-footer-gradient-black w-full h-full text-white p-8 text-center">
-                    <div className="flex flex-col sm:flex-row items-center justify-center sm:items-start xl:px-24">
+                    <div className="flex flex-col w-full md:flex-row items-center justify-center md:items-start xl:px-24">
                         <LeftFooter data={src.data.left} />
                         <MiddleFooter data={src.data} />
                         <RightFooter data={src.data.right} />

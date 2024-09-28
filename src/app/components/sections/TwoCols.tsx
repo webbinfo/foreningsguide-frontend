@@ -1,7 +1,7 @@
 import { TwoColProps } from "@/app/utils/interfaces";
 import RichText from "../RichText";
 import { blobMapper } from "@/app/utils/colormapper";
-import Button from "../Button";
+import ButtonGroup from "../elements/ButtonGroup";
 
 export default function TwoCols({ heading, background, leftColumnWidth, leftContent, rightContent, buttons }: TwoColProps) {
 
@@ -18,13 +18,7 @@ export default function TwoCols({ heading, background, leftColumnWidth, leftCont
                     </div>
                 </div>
             </div>
-            <div className="flex justify-center align-middle">
-                {buttons && (
-                    buttons.map(button => (
-                        <Button key={button.id} id={button.id} text={button.text} link={button.link} newTab={button.newTab} type={button.type} icon={button.icon} />
-                    ))
-                )}
-            </div>
+            <ButtonGroup buttons={buttons} />
         </section>
     )
 }
