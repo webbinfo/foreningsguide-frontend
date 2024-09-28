@@ -19,12 +19,12 @@ export default function TwoCols({ heading, background, leftColumnWidth, leftCont
                 </div>
             </div>
             <div className="flex justify-center align-middle">
-                        {buttons && (
-                            buttons.map(button => (
-                                <Button key={button.id} id={button.id} text={button.text} link={button.link} newTab={button.newTab} type={button.type} icon={button.icon} />
-                            ))
-                        )}
-                    </div>
+                {buttons && (
+                    buttons.map(button => (
+                        <Button key={button.id} id={button.id} text={button.text} link={button.link} newTab={button.newTab} type={button.type} icon={button.icon} />
+                    ))
+                )}
+            </div>
         </section>
     )
 }

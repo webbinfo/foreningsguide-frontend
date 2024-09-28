@@ -131,6 +131,7 @@ export interface FullWidthTextProps {
     heading: string;
     anchor: string;
     content: BlocksContent;
+    buttons?: Array<ButtonProps>;
 }
 
 export interface BannerProps {
