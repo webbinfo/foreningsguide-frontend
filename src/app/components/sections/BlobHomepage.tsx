@@ -24,7 +24,9 @@ export default function BlobHomepage({heading, anchor, content, image, buttons, 
                     <div className="md:max-w-4xl xl:max-w-full">
                         <RichText content={content}/>
                     </div>
-                    <ButtonGroup buttons={buttons} />
+                    <div className="md:float-start mt-4">
+                        <ButtonGroup buttons={buttons} />
+                    </div>
                 </div>
                 {image && !imgLeft && (
                     <div className="w-full h-full mb-4">

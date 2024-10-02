@@ -24,7 +24,6 @@ export interface ButtonProps {
 export interface ButtonGroupProps {
     buttons?: Array<ButtonProps>;
     divBG?: string | undefined;
-    float?: 'start' | 'right' | 'end';
 }
 
 export interface Picture {
@@ -143,10 +142,10 @@ export interface FullWidthTextProps {
 export interface BannerProps {
     data: {
         heading: string;
-        text: string;
+        content: string;
         type: string;
-        showStart: string;
-        showStop: string;
+        startDate: string;
+        endDate: string;
         link: {
             id: number;
             text: string;

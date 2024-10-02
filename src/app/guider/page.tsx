@@ -26,14 +26,6 @@ function getCompletedBySlug(slug: string) {
     }
 }
 
-function clearCookies() {
-    const allCookies = Cookies.get()
-    for (let cookie in allCookies) {
-        Cookies.remove(cookie); // Remove each cookie
-    }
-    window.location.reload()
-}
-
 // Implemented pagination, even though it is not needed atm
 export default function RootLayout() {
     const [data, setData] = useState<any>([]);
@@ -95,10 +87,6 @@ export default function RootLayout() {
             {pageData.map((section: any, index: number) => 
                 sectionRenderer(section, index)
             )}
-            <div onClick={clearCookies}>
-                <br/>
-                <p><b>TA BORT SEN:</b>Rensa alla kakor</p>
-            </div>
             <div className="grid grid-cols-1 auto-rows-auto gap-4 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 w-3/4 pt-12 text-sm">
                 {data.map((course: any) => (
                     <CourseCard 
