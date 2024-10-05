@@ -65,7 +65,7 @@ function MiddleFooter(data: MiddleFooterProps) {
                     <LinkedLogo
                         key={logo.id}
                         data={logo}
-                        thumbnail={true}
+                        thumbnail={false}
                         width={logoWidth}
                         height={logoHeight}
                     />
