@@ -32,13 +32,13 @@ export default function CourseCard({ name, slug, introduction, coverImage, compl
                 <p className="pb-4 flex-grow">{introduction}</p>
                 <div className="mt-auto">
                     <div className="w-full flex justify-center">
-                        <Button id={id} text="Starta kursen" link={`guider/${slug}`} type="Solid" newTab={false} icon={"Pil"} />
+                        <Button id={id} text="Starta guiden" link={`guider/${slug}`} type="Solid" newTab={false} icon={"Pil"} />
                     </div>
                     {completed && (
                         <div className="flex justify-center items-center pt-4">
                             <div className="flex flex-row items-center">
                                 <CheckBadgeIcon height={16} width={16} className="text-green-500 z-20 h-8 w-8" />
-                                <p className="text-sm text-center ml-2">Kursen är avklarad</p>
+                                <p className="text-sm text-center ml-2">Guiden är avklarad</p>
                             </div>
                         </div>
                     )}

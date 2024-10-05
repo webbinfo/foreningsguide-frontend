@@ -15,7 +15,7 @@ function addDictHighlight(text: any, dict: Array<string>) {
     if (block.type.name == "Text") {
       const regex = new RegExp(`\\b(${escapedPhrases.join('|')})\\b`, 'gi');
       const highlightedText = block.props.text.replace(regex, (match: string) => `<a href="/ordlista#${findDefiningWord(dict, match.toLowerCase())}" target="_blank" class="hl-text" >${match}</a>`);
-      return <div dangerouslySetInnerHTML={{ __html: highlightedText }} />;
+      return <div dangerouslySetInnerHTML={{ __html: highlightedText }} key={text} />;
     } else {
       return block;
     }
