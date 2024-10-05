@@ -92,7 +92,7 @@ export default function RootLayout() {
                     <CourseCard 
                         key={course.id}
                         id={course.id} 
-                        name={course.attributes.order + " " + course.attributes.name} 
+                        name={course.attributes.name} 
                         slug={course.attributes.slug} 
                         introduction={course.attributes.introduction} 
                         coverImage={course.attributes.coverImage}
