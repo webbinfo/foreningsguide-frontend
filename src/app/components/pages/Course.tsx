@@ -84,7 +84,7 @@ export default async function Course({ data }: { data: CourseProps }) {
                     </div>
                     <div className="w-full flex justify-center">
                         <div onClick={handleButtonClick} className="cursor-pointer">
-                            <Button id={data.id} text="Avsluta kurs" link="/guider" type="Solid" newTab={false} />
+                            <Button id={data.id} text="Markera guiden som avklarad" link="/guider" type="Solid" newTab={false} />
                         </div>
                     </div>
                 </div>

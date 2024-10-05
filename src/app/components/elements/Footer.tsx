@@ -54,8 +54,8 @@ function LeftFooter(data: LeftFooterProps) {
 }
 
 function MiddleFooter(data: MiddleFooterProps) {
-    const logoWidth = 160;
-    const logoHeight = 40;
+    const logoWidth = 250;
+    const logoHeight = logoWidth;
 
     return (
         <div className="flex flex-col w-full mx-8 pb-8 md:text-left md:w-2/5 md:pb-0 md:ml-24">
