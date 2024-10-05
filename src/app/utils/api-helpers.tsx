@@ -1,14 +1,14 @@
 export function getStrapiURL(path = "") {
-    return `${process.env.STRAPI_API_URL || 'http://68.183.241.6'}${path}`;
+    return `${process.env.STRAPI_API_URL || 'https://cms.foreningsguide.studentlivet.se'}${path}`;
 }
 
 export function getStrapiMedia(url: string | null) {
     if (url == null) {
         return null;
     }
-    
+
     //Return full URL if image is hosted on external server
-    if (url.startsWith("http") || url.startsWith("//")) {
+    if (url.startsWith("https") || url.startsWith("//")) {
         return url;
     }
 

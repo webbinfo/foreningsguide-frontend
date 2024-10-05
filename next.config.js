@@ -4,6 +4,12 @@ const nextConfig = {
     images: {
         remotePatterns: [
             {
+                protocol: 'https',
+                hostname: 'cms.foreningsguide.studentlivet.se',
+                port: '',
+                pathname: '/uploads/**',
+            },
+            {
                 protocol: 'http',
                 hostname: '68.183.241.6',
                 port: '',

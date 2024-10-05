@@ -5,6 +5,10 @@ import ButtonGroup from "../elements/ButtonGroup";
 
 export default function TwoCols({ heading, background, leftColumnWidth, leftContent, rightContent, buttons }: TwoColProps) {
 
+    if (!leftColumnWidth || leftColumnWidth < 1 || leftColumnWidth > 11) {
+        leftColumnWidth = 6;
+    }
+
     return (
         <section className={`${blobMapper(background)} py-8`}>
             <div className="container mx-auto">
