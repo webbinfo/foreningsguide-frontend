@@ -58,7 +58,7 @@ function MiddleFooter(data: MiddleFooterProps) {
     const logoHeight = logoWidth;
 
     return (
-        <div className="flex flex-col w-full mx-8 pb-8 md:text-left md:w-2/5 md:pb-0 md:ml-24">
+        <div className="flex flex-col w-full mx-8 pb-8 md:text-left md:w-2/5 md:pb-0 md:mx-16 2xl:mx-24">
             <h2 className="text-m font-bold pb-4">{data.data.middleTopTitle}</h2>
             <div className="grid grid-cols-3 gap-4 md:gap-2 md:grid-cols-4 2xl:flex 2xl:flex-row">
                 {data.data.middleTopLogos.map((logo) => (
@@ -100,7 +100,7 @@ function MiddleFooter(data: MiddleFooterProps) {
 
 function RightFooter(data: RightFooterProps) {
     return (
-        <div className="flex flex-col w-full pb-8 md:text-left md:w-2/5 md:pb-0 md:ml-24">
+        <div className="flex flex-col w-full pb-8 md:text-left md:w-2/5 md:pb-0">
             <h2 className="text-m font-bold pb-4">{data.data.heading}</h2>
             <div className="b-8">
                 <RichText content={data.data.content} />
