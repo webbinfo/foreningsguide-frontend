@@ -60,7 +60,7 @@ function MiddleFooter(data: MiddleFooterProps) {
     return (
         <div className="flex flex-col w-full mx-8 pb-8 md:text-left md:w-2/5 md:pb-0 md:ml-24">
             <h2 className="text-m font-bold pb-4">{data.data.middleTopTitle}</h2>
-            <div className="grid grid-cols-3 gap-4 sm:flex sm:flex-row">
+            <div className="grid grid-cols-3 gap-4 md:gap-2 md:grid-cols-4 2xl:flex 2xl:flex-row">
                 {data.data.middleTopLogos.map((logo) => (
                     <LinkedLogo
                         key={logo.id}
