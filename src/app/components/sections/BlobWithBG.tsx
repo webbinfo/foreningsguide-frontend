@@ -13,7 +13,7 @@ export default function BlobWithBG({ background, layout, blobColor, heading, anc
 
     return (
         <section id={anchor} className={`relative ${blobMapper(background)} py-8`}>
-            <div className={`${blobMapper(blobColor)} rounded-xl flex flex-col md:flex-row p-8 py-8 mx-8 md:mx-24 text-center md:text-left items-center`}>
+            <div className={`${blobMapper(blobColor)} rounded-xl flex flex-col md:flex-row p-6 md:p-12 py-4 mx-4 md:mx-24 text-center md:text-left items-center`}>
                 {image && imgLeft && (
                     <div className="w-full h-full mr-12 mb-4 mx-auto">
                         <Media data={image} />

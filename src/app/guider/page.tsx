@@ -87,7 +87,7 @@ export default function RootLayout() {
             {pageData.map((section: any, index: number) => 
                 sectionRenderer(section, index)
             )}
-            <div className="grid grid-cols-1 auto-rows-auto gap-4 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 w-3/4 pt-12 text-sm">
+            <div className="grid grid-cols-1 auto-rows-auto gap-4 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 w-full md:w-3/4 px-4 pt-12 text-sm">
                 {data.map((course: any) => (
                     <CourseCard 
                         key={course.id}

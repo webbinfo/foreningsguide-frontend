@@ -73,7 +73,7 @@ export default function RootLayout() {
             {pageData && pageData.map((section: any, index: number) =>
                 sectionRenderer(section, index)
             )}
-            <div className="flex flex-col w-full px-8 pt-8 md:w-5/6 md:grid md:grid-cols-2 md:gap-x-4 xl:grid-cols-3">
+            <div className="flex flex-col w-full px-4 pt-8 md:w-5/6 md:grid md:grid-cols-2 md:gap-x-4 xl:grid-cols-3">
                 {contentData.map((item: any, index: number) => (
                     <div key={item.id} className="mb-0">
                         <DictionaryItems word={item.attributes.word} definition={item.attributes.definition} aliases={item.attributes.aliases} index={index} />

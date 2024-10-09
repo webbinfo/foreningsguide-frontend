@@ -17,7 +17,7 @@ export default function CourseCard({ name, slug, introduction, coverImage, compl
     const imgURL = getStrapiMedia(coverImage.data?.attributes.formats.small.url);
 
     return (
-        <div className="bg-mint rounded-lg p-8 flex flex-col h-full">
+        <div className="bg-mint rounded-lg p-6 md:p-8 flex flex-col h-full">
             <div className={`flex flex-col flex-grow ${completed ? 'bg-white/5 opacity-50' : ''}`}>
                 {imgURL && (
                     <Image
