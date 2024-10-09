@@ -7,6 +7,7 @@ import CourseCard from "../components/CourseCard";
 import { getPageBySlug } from "../utils/get-page-by-slug";
 import { sectionRenderer } from "../utils/section-renderer";
 import Cookies from "js-cookie";
+import Button from "../components/Button";
 
 interface Meta {
     pagination: {
@@ -70,7 +71,6 @@ export default function RootLayout() {
         }
     }, []);
 
-    // Added, but not implemented yet as it is not needed
     function loadMoreCourses(): void {
         const nextCourses = meta!.pagination.start + meta!.pagination.limit;
         fetchData(nextCourses, Number(process.env.NEXT_PUBLIC_COURSES_PER_PAGE));
@@ -99,6 +99,13 @@ export default function RootLayout() {
                         completed={getCompletedBySlug(course.attributes.slug)}
                     />
                 ))}
+            </div>
+            <div>
+                {meta!.pagination.total >= meta!.pagination.start + meta!.pagination.limit &&
+                    <div onClick={loadMoreCourses} className="pt-8">
+                        <Button id={1337} text={"Läs in fler guider"} newTab={false} link="#" type={"Solid"} />
+                    </div>
+                }
             </div>
         </div>
     )
