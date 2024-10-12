@@ -28,8 +28,8 @@ export default function CourseCard({ name, slug, introduction, coverImage, compl
                         className="mb-4 w-full rounded-lg"
                     />
                 )}
-                <h2 className="font-bold text-xl pb-4">{name}</h2>
-                <p className="pb-4 flex-grow">{introduction}</p>
+                <h2 className="font-bold text-xl pb-4 text-center">{name}</h2>
+                <p className="pb-4 flex-grow text-center">{introduction}</p>
                 <div className="mt-auto">
                     <div className="w-full flex justify-center">
                         <Button id={id} text="Starta guiden" link={`guider/${slug}`} type="Solid" newTab={false} icon={"Pil"} />
