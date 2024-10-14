@@ -7,6 +7,7 @@ import { getPageBySlug } from "../utils/get-page-by-slug";
 import { sectionRenderer } from "../utils/section-renderer";
 import DictionaryItems from "../components/DictionaryItem";
 import Button from "../components/Button";
+import Head from "next/head";
 
 interface Meta {
     pagination: {
@@ -23,6 +24,7 @@ export default function RootLayout() {
     const [pageData, setPageData] = useState<any>([]);
     const [isLoading, setLoading] = useState(true);
     const [meta, setMeta] = useState<Meta | undefined>();
+    const [SEOData, setSEOData] = useState<any>();
 
     const fetchData = useCallback(async (start: number, limit: number) => {
         setLoading(true);
@@ -50,6 +52,7 @@ export default function RootLayout() {
             const page = await getPageBySlug("ordlista")
             const contentSections = page.data[0].attributes.content;
             setPageData(contentSections);
+            setSEOData(page.data[0].attributes.seo);
         } catch (error: any) {
             console.error(error);
         } finally {
@@ -69,24 +72,30 @@ export default function RootLayout() {
     if (isLoading) return <Loader />;
 
     return (
-        <div className="flex flex-col bg-white justify-center items-center text-left md:text-center">
-            {pageData && pageData.map((section: any, index: number) =>
-                sectionRenderer(section, index)
-            )}
-            <div className="flex flex-col w-full px-4 pt-8 md:w-5/6 md:grid md:grid-cols-2 md:gap-x-4 xl:grid-cols-3">
-                {contentData.map((item: any, index: number) => (
-                    <div key={item.id} className="mb-0">
-                        <DictionaryItems word={item.attributes.word} definition={item.attributes.definition} aliases={item.attributes.aliases} index={index} />
-                    </div>
-                ))}
+        <>
+            <Head>
+                <title>{SEOData.metaTitle}</title>
+                <meta name="description" content={SEOData.metaDescription}/>
+            </Head>
+            <div className="flex flex-col bg-white justify-center items-center text-left md:text-center">
+                {pageData && pageData.map((section: any, index: number) =>
+                    sectionRenderer(section, index)
+                )}
+                <div className="flex flex-col w-full px-4 pt-8 md:w-5/6 md:grid md:grid-cols-2 md:gap-x-4 xl:grid-cols-3">
+                    {contentData.map((item: any, index: number) => (
+                        <div key={item.id} className="mb-0">
+                            <DictionaryItems word={item.attributes.word} definition={item.attributes.definition} aliases={item.attributes.aliases} index={index} />
+                        </div>
+                    ))}
+                </div>
+                <div className="pt-4 pb-8">
+                    {meta!.pagination.total > meta!.pagination.start + meta!.pagination.limit &&
+                        <div onClick={loadMoreCourses}>
+                            <Button id={1337} text={"Läs in fler ord"} newTab={false} link="#" type={"Solid"} />
+                        </div>
+                    }
+                </div>
             </div>
-            <div className="pt-4 pb-8">
-                {meta!.pagination.total > meta!.pagination.start + meta!.pagination.limit &&
-                    <div onClick={loadMoreCourses}>
-                        <Button id={1337} text={"Läs in fler ord"} newTab={false} link="#" type={"Solid"} />
-                    </div>
-                }
-            </div>
-        </div>
+        </>
     )
 }

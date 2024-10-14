@@ -25,8 +25,6 @@ export default function Banner({ data }: BannerProps) {
     const today = new Date();
     const show = today >= new Date(startDate) && today <= new Date(endDate);
 
-    console.log("Banner", startDate, today);
-
     if (!show || !isOpen) {
         return null;
     }
