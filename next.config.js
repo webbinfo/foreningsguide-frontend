@@ -10,6 +10,12 @@ const nextConfig = {
                 pathname: '/uploads/**',
             },
             {
+                protocol: 'https',
+                hostname: 'www.cms.foreningsguide.studentlivet.se',
+                port: '',
+                pathname: '/uploads/**',
+            },
+            {
                 protocol: 'http',
                 hostname: '68.183.241.6',
                 port: '',

@@ -7,13 +7,13 @@ import { useState } from "react";
 function colorMapper(type: string) {
     switch (type) {
         case "Info":
-            return "bg-mint text-black";
+            return "bg-mint text-black border-t-mint-dark";
         case "Warning":
-            return "bg-yellow text-black";
+            return "bg-yellow text-black border-t-yellow-dark";
         case "Alert":
-            return "bg-coral text-white";
+            return "bg-coral text-white border-t-coral-dark";
         default:
-            return "bg-mint text-black";
+            return "bg-mint text-black border-t-mint-dark";
     }
 }
 
@@ -33,7 +33,7 @@ export default function Banner({ data }: BannerProps) {
 
     return (
         <div className="pointer-events-none fixed inset-x-0 bottom-0 sm:flex sm:justify-center sm:px-6 sm:pb-5 lg:px-8">
-            <div className={`pointer-events-auto flex items-center justify-between gap-x-6 py-3 px-8 sm:rounded-full ${colorMapper(type)}`}>
+            <div className={`pointer-events-auto flex items-center justify-between gap-x-6 py-3 px-8 sm:rounded-full ${colorMapper(type)} border-t-2  shadow-inner sm:shadow-xl`}>
                 <div className="flex flex-col">
                     <div className="flex flex-row justify-between">
                         <p className="text-md leading-6 font-bold">{heading}</p>

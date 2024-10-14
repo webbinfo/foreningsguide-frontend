@@ -45,7 +45,7 @@ function LeftFooter(data: LeftFooterProps) {
     return (
         <div className="flex flex-col items-center md:text-left w-full pb-8 md:w-1/5 md:pb-0">
             <h2 className="text-m font-bold pb-4">{data.data.heading}</h2>
-            <div className="pb-8">
+            <div className="pb-2">
                 <RichText content={data.data.content} />
             </div>
             <Image src={imgURL || ""} alt={data.data.sponsoredLogo.data.attributes.alternativeText || "KOMBO Logo"} width={160} height={40} />

@@ -17,7 +17,7 @@ export default function CourseCard({ name, slug, introduction, coverImage, compl
     const imgURL = getStrapiMedia(coverImage.data?.attributes.formats.small.url);
 
     return (
-        <div className="bg-mint rounded-lg p-6 md:p-8 flex flex-col h-full">
+        <div className="bg-mint rounded-lg p-6 md:p-8 flex flex-col h-full text-left">
             <div className={`flex flex-col flex-grow ${completed ? 'bg-white/5 opacity-50' : ''}`}>
                 {imgURL && (
                     <Image
@@ -28,20 +28,20 @@ export default function CourseCard({ name, slug, introduction, coverImage, compl
                         className="mb-4 w-full rounded-lg"
                     />
                 )}
-                <h2 className="font-bold text-xl pb-4 text-center">{name}</h2>
-                <p className="pb-4 flex-grow text-center">{introduction}</p>
+                <h2 className="font-bold text-xl pb-4">{name}</h2>
+                <p className="pb-4 flex-grow">{introduction}</p>
                 <div className="mt-auto">
+                    {completed && (
+                            <div className="flex justify-center items-center pb-2">
+                                <div className="flex flex-row items-center">
+                                    <CheckBadgeIcon height={16} width={16} className="text-green-500 z-20 h-8 w-8" />
+                                    <p className="text-sm ml-2">Guiden är avklarad</p>
+                                </div>
+                            </div>
+                        )}
                     <div className="w-full flex justify-center">
                         <Button id={id} text="Starta guiden" link={`guider/${slug}`} type="Solid" newTab={false} icon={"Pil"} />
                     </div>
-                    {completed && (
-                        <div className="flex justify-center items-center pt-4">
-                            <div className="flex flex-row items-center">
-                                <CheckBadgeIcon height={16} width={16} className="text-green-500 z-20 h-8 w-8" />
-                                <p className="text-sm text-center ml-2">Guiden är avklarad</p>
-                            </div>
-                        </div>
-                    )}
                 </div>
             </div>
         </div>

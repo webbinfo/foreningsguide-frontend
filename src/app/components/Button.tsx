@@ -55,13 +55,13 @@ function colormapper(divBG: string | undefined, type: string) {
 export default function Button({ text, link, newTab, type, icon, divBG }: ButtonProps) {
   return (
     <Link href={link} target={newTab ? '_blank' : '_self'} passHref className='no-underline'>
-      <div className={`flex justify-center items-center px-8 font-semibold  rounded-full cursor-pointer ${colormapper(divBG, type)}`}>
+      <div className={`flex justify-center items-center px-8 font-semibold rounded-full cursor-pointer ${colormapper(divBG, type)}`}>
         {icon != "Pil" && icon != undefined ? (
           <span className="mr-2">
             {parseIcon(icon)}
           </span>
         ) : null}
-        <span>{text}</span>
+        <span className='text-base'>{text}</span>
         {icon == "Pil" ? (
           <span className="ml-2">
             {parseIcon(icon)}

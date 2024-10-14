@@ -101,7 +101,7 @@ export default function RootLayout() {
                 ))}
             </div>
             <div>
-                {meta!.pagination.total >= meta!.pagination.start + meta!.pagination.limit &&
+                {meta!.pagination.total > meta!.pagination.start + meta!.pagination.limit &&
                     <div onClick={loadMoreCourses} className="pt-8">
                         <Button id={1337} text={"Läs in fler guider"} newTab={false} link="#" type={"Solid"} />
                     </div>
