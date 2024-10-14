@@ -77,8 +77,6 @@ export default async function RootLayout({
       <head>
         <meta name="robots" content="noindex" />
         <meta charSet="UTF-8" />
-        <meta name="description" content="Föreningsguiden har tagit fram för att underlätta att starta och driva en förening vid Linköpings Universitet."/>
-        <meta name="title"  content="Föreningsguiden - Startsida" />
 
         {/* Google Analytics Script */}
         <Script
