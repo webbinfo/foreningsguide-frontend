@@ -33,8 +33,10 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     const meta = await getMetaData(params.slug);
     const metadata = meta[0].attributes.seo;
 
+    const concatTitle = `Föreningsguiden - ${metadata.metaTitle}`;
+
     return {
-        title: metadata.metaTitle,
+        title: concatTitle,
         description: metadata.metaDescription,
     }
 }

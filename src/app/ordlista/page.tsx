@@ -74,7 +74,7 @@ export default function RootLayout() {
     return (
         <>
             <Head>
-                <title>{SEOData.metaTitle}</title>
+                <title>{`Föreningsguiden - ${SEOData.metaTitle}`}</title>
                 <meta name="description" content={SEOData.metaDescription}/>
             </Head>
             <div className="flex flex-col bg-white justify-center items-center text-left md:text-center">
