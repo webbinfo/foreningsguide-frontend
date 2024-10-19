@@ -52,7 +52,6 @@ export default async function Course({ data }: { data: CourseProps }) {
     const contentSections = data.attributes.content;
 
     const dictionaryItems = await getDictionary();
-    console.log(dictionaryItems);
 
     const handleButtonClick = () => {
         const slug = data.attributes.slug;

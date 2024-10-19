@@ -13,9 +13,10 @@ function addDictHighlight(text: any, dict: Array<string>) {
     if (block.type.name === "Text") {
       const highlightedText = block.props.text.replace(regex, (match: string) => {
         const definingWord = findDefiningWord(Array.from(dictSet), match.toLowerCase());
+
         return `<a class="hl-text" href="/ordlista#${definingWord}">${match}</a>`;
       });
-      return <div dangerouslySetInnerHTML={{ __html: highlightedText }} key={block.key} />;
+      return <p dangerouslySetInnerHTML={{ __html: highlightedText }} key={block.key} />;
     } else {
       return block;
     }
