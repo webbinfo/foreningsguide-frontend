@@ -114,7 +114,13 @@ export default async function RootLayout({
         </main>
 
         <CookieDialog data={cookies}/>
-        <Banner data={notificationBanner} />
+        <div className="fixed bottom-0 w-full z-50 flex flex-col space-y-2 items-center pb-2">
+          {notificationBanner && notificationBanner.map((banner: any, index: number) => (
+            <div key={index}>
+              <Banner data={banner} />
+            </div>
+          ))}
+        </div>
 
         <Footer data={footer} />
       </body>
