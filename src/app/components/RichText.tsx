@@ -56,7 +56,7 @@ const RichText: React.FC<RichTextProps> = ({ content, checkDict = false, diction
         list: ({ children, format }) => format === "ordered" ? <ol>{children}</ol> : <ul>{children}</ul>,
         heading: ({ children, level }) => React.createElement(`h${level}`, {}, children),
         paragraph: ({ children }) => (
-          <span>{checkDict && dictionaryItems.length > 0 ? addDictHighlight(children, dictSet, regex) : children}</span>
+          <span className="text-lg">{checkDict && dictionaryItems.length > 0 ? addDictHighlight(children, dictSet, regex) : children}</span>
         ),
         quote: ({ children }) => (
           <div className="relative flex flex-col m-4">
