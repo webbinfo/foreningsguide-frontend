@@ -1,7 +1,8 @@
-import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react'
+import { useEffect, useState } from 'react';
+import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react';
 import RichText from './RichText';
 import { BlocksContent } from '@strapi/blocks-react-renderer';
-import { ChevronDownIcon } from '@heroicons/react/20/solid'
+import { ChevronDownIcon } from '@heroicons/react/20/solid';
 
 interface DictionaryItemProps {
   word: string;
@@ -12,6 +13,7 @@ interface DictionaryItemProps {
 
 function colorMapper(index: number) {
   const black = " text-black group-data-[hover]:text-black/80";
+  const white = " text-white group-data-[hover]:text-white/80";
   
   switch (index % 4) {
     case 0:
@@ -33,9 +35,18 @@ function formatAliases(aliases: string) {
 }
 
 export default function DictionaryItem({ word, definition, index, aliases }: DictionaryItemProps) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    const hash = window.location.hash.substring(1);
+    if (hash === word.toLowerCase()) {
+      setIsOpen(true);
+    }
+  }, [word]);
+
   return (
-    <div id={word.toLowerCase()} className={`mx-auto w-full max-w-lg divide-y divide-coral/5 ${colorMapper(index)} rounded-lg  mb-4`}>
-      <Disclosure as='div' className='p-6' id={word.toLowerCase()}>
+    <div className={`mx-auto w-full max-w-lg divide-y divide-coral/5 ${colorMapper(index)} rounded-lg  mb-4`}>
+      <Disclosure as='div' className='p-6' defaultOpen={isOpen}>
         <DisclosureButton className="group flex w-full items-center justify-between">
           <span className='text-lg font-medium '>
             {word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()}
@@ -44,15 +55,12 @@ export default function DictionaryItem({ word, definition, index, aliases }: Dic
         </DisclosureButton>
 
         <DisclosurePanel className={`mt-2 text-sm/5 text-black/80 `}>
-          {aliases ? <p className={`text-left pb-2 'text-black/60`}>
-            Alternativ:
-            <i> {formatAliases(aliases)}</i>
-          </p> : null}
+          {aliases ? <p className={`text-left pb-2 'text-black/60`}>Alternativ: <i>{formatAliases(aliases)}</i></p> : null}
           <div className='text-left'>
             <RichText content={definition} />
           </div>
         </DisclosurePanel>
       </Disclosure>
     </div>
-  )
+  );
 }

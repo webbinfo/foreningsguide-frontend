@@ -7,9 +7,9 @@ export default function CourseTextBlock({ id, heading, level, content, sidenote,
 
     return (
         <section id={id}>
-            <div className={`flex flex-col lg:flex-row sm:mx-24 text-black w-full mb-4`}>
+            <div className={`flex flex-col lg:flex-row md:mx-24 text-black w-full mb-4`}>
                 <div className={`lg:flex lg:flex-row`}>
-                    <div className={`flex flex-col sm:mr-12 ${sidenote.length>0 ? 'lg:w-1/2' : 'lg:w-full'} ${useBG ? 'bg-mint rounded-lg mx-8' : ''} p-6 py-8`}>
+                    <div className={`flex flex-col md:mr-12 ${sidenote.length>0 ? 'lg:w-1/2' : 'lg:w-full'} ${useBG ? 'bg-mint rounded-lg md:mx-8' : ''} p-6 py-8`}>
                         <h4 className="text-l font-bold py-0 pb-5 my-0">{heading}</h4>
                         <RichText content={content} checkDict={true} dictionaryItems={dictionaryItems} />
                     </div>

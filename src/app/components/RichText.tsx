@@ -5,21 +5,21 @@ import React from "react";
 
 import { BlocksRenderer, type BlocksContent } from "@strapi/blocks-react-renderer";
 
-// TODO: Optimize. This works, but probably not the best way to do it
 function addDictHighlight(text: any, dict: Array<string>) {
-  const dictItems = dict.join(',').split(',');
-  const dictArray = dictItems.map(item => item.trim());
-  const escapedPhrases = dictArray.map(phrase => phrase.toLowerCase());
+  const dictSet = new Set(dict.flatMap(item => item.split(',').map(phrase => phrase.trim().toLowerCase())));
+  const regex = new RegExp(`\\b(${Array.from(dictSet).join('|')})\\b`, 'gi');
 
   return text.map((block: any) => {
-    if (block.type.name == "Text") {
-      const regex = new RegExp(`\\b(${escapedPhrases.join('|')})\\b`, 'gi');
-      const highlightedText = block.props.text.replace(regex, (match: string) => `<a href="/ordlista#${findDefiningWord(dict, match.toLowerCase())}" target="_blank" class="hl-text" >${match}</a>`);
-      return <div dangerouslySetInnerHTML={{ __html: highlightedText }} key={text} />;
+    if (block.type.name === "Text") {
+      const highlightedText = block.props.text.replace(regex, (match: string) => {
+        const definingWord = findDefiningWord(Array.from(dictSet), match.toLowerCase());
+        return `<a class="hl-text" href="/ordlista#${definingWord}">${match}</a>`;
+      });
+      return <div dangerouslySetInnerHTML={{ __html: highlightedText }} key={block.key} />;
     } else {
       return block;
     }
-  })
+  });
 }
 
 function findDefiningWord(searchArray: Array<string>, keyword: string) {
@@ -29,7 +29,7 @@ function findDefiningWord(searchArray: Array<string>, keyword: string) {
       return definingWord;
     }
   }
-  return keyword; // The keyword is the defining word
+  return keyword;
 }
 
 export default function RichText({ content, checkDict = false, dictionaryItems = [] }: { content: BlocksContent, checkDict?: boolean, dictionaryItems?: Array<string> }) {
@@ -59,8 +59,7 @@ export default function RichText({ content, checkDict = false, dictionaryItems =
         // Funkar lite halvbra nu, lägger till en ny rad efter länkar
          paragraph: ({ children }) => {
           if (checkDict && dictionaryItems.length > 0) {
-            const content = addDictHighlight(children, dictionaryItems)
-            return <p>{content}</p>
+            return <p>{addDictHighlight(children, dictionaryItems)}</p>
           } else {
             return <p>{children}</p>
           }

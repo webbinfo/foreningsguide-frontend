@@ -163,3 +163,9 @@ export interface TwoColProps {
     rightContent: BlocksContent;
     buttons: Array<ButtonProps>;
 }
+
+export interface WordHighlightProps {
+    word: string;
+    aliases: string[];
+    description: string;
+}

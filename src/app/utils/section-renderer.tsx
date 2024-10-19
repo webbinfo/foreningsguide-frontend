@@ -6,7 +6,7 @@ import IngressText from "../components/sections/IngressText";
 import TwoCols from "../components/sections/TwoCols";
 import BlobHomepage from "../components/sections/BlobHomepage";
 
-export function sectionRenderer(section: any, index: number, dictionaryItems?: string[]) {
+export function sectionRenderer(section: any, index: number, dictionaryItems?: Array<string>) {
     switch (section.__component) {
 
         // General sections

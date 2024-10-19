@@ -1,4 +1,4 @@
-"use client"
+'use client';
 
 import CourseHero from "../CourseHero";
 import { Picture } from "../../utils/interfaces";
@@ -7,7 +7,6 @@ import TOC from "../elements/TOC";
 import { fetchAPI } from "../../utils/fetch-api";
 import Cookies from 'js-cookie';
 import Button from "../Button";
-import { useRouter } from 'next/navigation';
 
 interface CourseProps {
     id: number;
@@ -28,9 +27,11 @@ function handleCompleteCourse(slug: string) {
 }
 
 async function getDictionary() {
-    const dictionaryItems = await fetchAPI("/dictionaries");
+    const token = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
+    const options = { headers: { Authorization: `Bearer ${token}` } };
+    const dictionaryItems = await fetchAPI("/dictionaries", {}, options);
 
-    const formattedDict: string[] = dictionaryItems.data.map((item: any) => {
+    const formattedDict: string[] = dictionaryItems?.data.map((item: any) => {
         const mainItem = item.attributes.word.trim().toUpperCase();
         if (item.attributes.aliases == undefined) {
             return mainItem;
@@ -38,27 +39,25 @@ async function getDictionary() {
             const aliases = item.attributes.aliases.toLowerCase().split(',').map((alias: string) => alias.trim());
             const itemList = [mainItem, ...aliases];
             return itemList.join(', ');
-
         }
-
     });
 
     return formattedDict;
 }
 
 export default async function Course({ data }: { data: CourseProps }) {
-    const router = useRouter();
     const updatedAtDateTime = new Date(data.attributes.updatedAt);
     const formattedDate = updatedAtDateTime.toISOString().split('T')[0];
 
     const contentSections = data.attributes.content;
 
-    //const dictionaryItems = getDictionary();
+    const dictionaryItems = await getDictionary();
+    console.log(dictionaryItems);
 
     const handleButtonClick = () => {
         const slug = data.attributes.slug;
         handleCompleteCourse(slug);
-        router.push('/guider'); // Redirect to the parent page
+        window.location.href = '/guider'; // Redirect to the parent page
     };
 
     return (
@@ -79,7 +78,7 @@ export default async function Course({ data }: { data: CourseProps }) {
                     </div>
                     <div className="lg:pt-4 w-11/12 mx-4">
                         {contentSections && contentSections.map((section: any, index: number) => (
-                            sectionRenderer(section, index)//, dictionaryItems)
+                            sectionRenderer(section, index, dictionaryItems)
                         ))}
                     </div>
                     <div className="w-full flex justify-center">
@@ -93,8 +92,6 @@ export default async function Course({ data }: { data: CourseProps }) {
                     <TOC data={contentSections} />
                 </div>
             </div>
-
-
         </div>
-    )
+    );
 }

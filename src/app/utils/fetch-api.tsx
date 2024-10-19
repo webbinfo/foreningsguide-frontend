@@ -10,7 +10,7 @@ export async function fetchAPI(
         const mergedOptions = {
             next: { revalidate: 60 },
             headers: {
-                "Conent-Type": "application/json",
+                "Content-Type": "application/json",
             },
             ...options,
         };
