@@ -17,32 +17,32 @@ export default function CourseCard({ name, slug, introduction, coverImage, compl
     const imgURL = getStrapiMedia(coverImage.data?.attributes.formats.small.url);
 
     return (
-        <div className="bg-mint rounded-lg p-6 md:p-8 flex flex-col h-full text-left">
+        <div className="bg-mint rounded-lg p-6 md:p-8 flex flex-col h-full text-left cursor-pointer" onClick={() => window.location.href = `guider/${slug}` }>
             <div className={`flex flex-col flex-grow ${completed ? 'bg-white/5 opacity-50' : ''}`}>
-                {imgURL && (
-                    <Image
-                        src={imgURL}
-                        alt={coverImage.data.attributes.alternativeText || "Course cover image"}
-                        width={250}
-                        height={250}
-                        className="mb-4 w-full rounded-lg"
-                    />
-                )}
-                <h2 className="font-bold text-xl pb-4">{name}</h2>
-                <p className="pb-4 flex-grow">{introduction}</p>
-                <div className="mt-auto">
-                    {completed && (
-                            <div className="flex justify-center items-center pb-2">
-                                <div className="flex flex-row items-center">
-                                    <CheckBadgeIcon height={16} width={16} className="text-green-500 z-20 h-8 w-8" />
-                                    <p className="text-sm ml-2">Guiden är avklarad</p>
-                                </div>
-                            </div>
-                        )}
-                    <div className="w-full flex justify-center">
-                        <Button id={id} text="Starta guiden" link={`guider/${slug}`} type="Solid" newTab={false} icon={"Pil"} />
-                    </div>
+            {imgURL && (
+            <Image
+            src={imgURL}
+            alt={coverImage.data.attributes.alternativeText || "Course cover image"}
+            width={250}
+            height={250}
+            className="mb-4 w-full rounded-lg"
+            />
+            )}
+            <h2 className="font-bold text-xl pb-4">{name}</h2>
+            <p className="pb-4 flex-grow">{introduction}</p>
+            <div className="mt-auto">
+            {completed && (
+                <div className="flex justify-center items-center pb-2">
+                <div className="flex flex-row items-center">
+                <CheckBadgeIcon height={16} width={16} className="text-green-500 z-20 h-8 w-8" />
+                <p className="text-sm ml-2">Guiden är avklarad</p>
                 </div>
+                </div>
+            )}
+            <div className="w-full flex justify-center">
+            <Button id={id} text="Starta guiden" link={`guider/${slug}`} type="Solid" newTab={false} icon={"Pil"} />
+            </div>
+            </div>
             </div>
         </div>
     )

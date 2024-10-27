@@ -53,31 +53,3 @@ p, a, li {
 .hl-text {
   @apply text-coral;
 }
-
-.masonry-grid {
-  column-count: 1; /* Default to 1 column for smaller screens */
-  column-gap: 16px; /* Adjust gap between columns */
-}
-
-@media (min-width: 768px) {
-  .masonry-grid {
-    column-count: 2; /* 2 columns for medium screens */
-  }
-}
-
-@media (min-width: 1024px) {
-  .masonry-grid {
-    column-count: 3; /* 3 columns for large screens */
-  }
-}
-
-@media (min-width: 1536px) {
-  .masonry-grid {
-    column-count: 4; /* 4 columns for extra large screens */
-  }
-}
-
-.masonry-item {
-  break-inside: avoid;
-  margin-bottom: 16px; /* Adjust margin between items */
-}
