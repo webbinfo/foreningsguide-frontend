@@ -6,7 +6,7 @@ export default function CourseTextBlock({ id, heading, level, content, sidenote,
     const useBG = level === 2;
 
     return (
-        <section id={id}>
+        <section id={id} className="scroll-mt-32">
             <div className={`flex flex-col lg:flex-row md:mx-24 text-black w-full mb-4`}>
                 <div className={`lg:flex lg:flex-row`}>
                     <div className={`flex flex-col md:mr-12 ${sidenote.length>0 ? 'lg:w-1/2' : 'lg:w-full'} ${useBG ? 'bg-mint rounded-lg md:mx-8' : ''} p-6 py-8`}>
