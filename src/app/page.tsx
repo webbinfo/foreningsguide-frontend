@@ -15,7 +15,6 @@ export default async function RootRoute() {
       sectionRenderer(section, index)
   );
   } catch (error: any) {
-    console.error(error);
     return null;
   }
   
