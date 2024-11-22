@@ -11,7 +11,7 @@ export default function StyledImage({ imageSrc, altText, size }: StyledImageProp
     const mediaUrl = getStrapiMedia(imageSrc);
 
     return (
-        <div className={`relative z-50 w-52 h-52 xl:w-72 xl:h-72 flex justify-center items-center overflow-visible mb-4 xl:mb-0 ${size == "Stor bild" ? "mt-8 scale-110 xl:scale-150 xl:ml-16 xl:mt-0" : "scale-100 xl:ml-0"}`}>
+        <div className={`relative z-20 w-52 h-52 xl:w-72 xl:h-72 flex justify-center items-center overflow-visible mb-4 xl:mb-0 ${size == "Stor bild" ? "mt-8 scale-110 xl:scale-150 xl:ml-16 xl:mt-0" : "scale-100 xl:ml-0"}`}>
         {/* Blob SVG as background */}
         <Image
           src="/blob-shape.svg"
