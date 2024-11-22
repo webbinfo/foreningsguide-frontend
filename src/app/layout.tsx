@@ -98,8 +98,6 @@ export default async function RootLayout({
       </Script>
         <link rel="icon" href={navbarLogoUrl ?? "/favicon.ico"}/>
         <link rel="apple-touch-icon" href={navbarLogoUrl ?? "/favicon.ico"}/>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"/>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap"/>
       </head>
       <body>
         <Navbar

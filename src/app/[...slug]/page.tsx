@@ -27,7 +27,7 @@ export async function generateMetadata({params}: Pops): Promise<Metadata> {
 
 export default async function PageRoute({ params }: Pops): Promise<ReactNode> {
     const page = await getPageBySlug(params.slug);
-    if(page.data.length === 0) return notFound(); // Return 404 page if page not found
+    if(page.data[0] || page.data.length === 0) return notFound(); // Return 404 page if page not found
 
     const contentSections = page.data[0].attributes.contentSections;
 

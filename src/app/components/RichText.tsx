@@ -13,11 +13,15 @@ interface RichTextProps {
 function addDictHighlight(text: any, dictSet: Set<string>, regex: RegExp) {
   return text.map((block: any) => {
     if (block.type.name === "Text") {
-      const highlightedText = block.props.text.replace(regex, (match: string) => {
-        const definingWord = findDefiningWord(Array.from(dictSet), match.toLowerCase());
-        return `<a class="hl-text" href="/ordlista#${definingWord}">${match}</a>`;
+      const parts = block.props.text.split(regex);
+      const highlightedText = parts.map((part: string, index: number) => {
+        if (dictSet.has(part.toLowerCase())) {
+          const definingWord = findDefiningWord(Array.from(dictSet), part.toLowerCase());
+          return <a className="hl-text" href={`/ordlista#${definingWord}`} key={index}>{part}</a>;
+        }
+        return part;
       });
-      return <p dangerouslySetInnerHTML={{ __html: highlightedText }} key={block.key} />;
+      return <p key={block.key}>{highlightedText}</p>;
     } else {
       return block;
     }
@@ -55,9 +59,9 @@ const RichText: React.FC<RichTextProps> = ({ content, checkDict = false, diction
         link: ({ children, url }) => <Link href={url} target="_blank">{children}</Link>,
         list: ({ children, format }) => format === "ordered" ? <ol>{children}</ol> : <ul>{children}</ul>,
         heading: ({ children, level }) => React.createElement(`h${level}`, {}, children),
-        paragraph: ({ children }) => (
-          <span className="text-lg">{checkDict && dictionaryItems.length > 0 ? addDictHighlight(children, dictSet, regex) : children}</span>
-        ),
+        /*paragraph: ({ children }) => (
+          <p className="text-lg">{checkDict && dictionaryItems.length > 0 ? addDictHighlight(children, dictSet, regex) : children}</p>
+        ),*/
         quote: ({ children }) => (
           <div className="relative flex flex-col m-4">
             <i className="absolute top-0 left-0 text-4xl transform -translate-y-4">“</i>
