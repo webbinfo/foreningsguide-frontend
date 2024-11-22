@@ -113,6 +113,7 @@ export interface BlobHomepageProps {
     buttons?: Array<ButtonProps>;
     imagePosition?: 'Left' | 'Right';
     blobColor: string;
+    layout: 'Stor bild' | 'Liten bild';
 }
 
 export interface CourseTextBlockProps {

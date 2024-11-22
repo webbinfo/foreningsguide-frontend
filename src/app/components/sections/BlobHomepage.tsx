@@ -5,7 +5,7 @@ import { BlobHomepageProps } from "../../utils/interfaces";
 import ButtonGroup from "../elements/ButtonGroup";
 import StyledImage from "../elements/StyledImage";
 
-export default function BlobHomepage({heading, anchor, content, image, buttons, imagePosition, blobColor }: BlobHomepageProps) {
+export default function BlobHomepage({heading, anchor, content, image, buttons, imagePosition, blobColor, layout }: BlobHomepageProps) {
 
     let imgLeft = false
     if (imagePosition === 'Left') {
@@ -30,8 +30,8 @@ export default function BlobHomepage({heading, anchor, content, image, buttons, 
                     </div>
                 </div>
                 {image.data && !imgLeft && (
-                    <div className="w-full h-full mb-4 max-w-xl">
-                        <StyledImage imageSrc={image.data.attributes.url} altText={image.data.attributes.alternativeText}/>
+                    <div className="max-w-xl flex justify-center align-middle">
+                        <StyledImage size={layout} imageSrc={image.data.attributes.url} altText={image.data.attributes.alternativeText}/>
                     </div>
                 )}
             </div>
