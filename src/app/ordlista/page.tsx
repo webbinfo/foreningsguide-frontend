@@ -7,7 +7,6 @@ import { getPageBySlug } from "../utils/get-page-by-slug";
 import { sectionRenderer } from "../utils/section-renderer";
 import DictionaryItems from "../components/DictionaryItem";
 import Button from "../components/Button";
-import Head from "next/head";
 
 interface Meta {
     pagination: {
@@ -73,10 +72,6 @@ export default function RootLayout() {
 
     return (
         <>
-            <Head>
-                <title>{`Föreningsguiden - ${SEOData.metaTitle}`}</title>
-                <meta name="description" content={SEOData.metaDescription}/>
-            </Head>
             <div className="flex flex-col bg-white justify-center items-center text-left md:text-center">
                 {pageData && pageData.map((section: any, index: number) =>
                     sectionRenderer(section, index)
