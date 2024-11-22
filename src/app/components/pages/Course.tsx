@@ -60,7 +60,7 @@ export default async function Course({ data }: { data: CourseProps }) {
     };
 
     return (
-        <div className="bg-white py-8">
+        <div className="bg-white pb-8">
             <CourseHero key={0} data={{
                 id: "0",
                 heading: data.attributes.name,
