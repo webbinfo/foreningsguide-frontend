@@ -12,7 +12,9 @@ export function blobMapper(blobColor: string) {
             return "bg-chalk text-black";
         case "vit":
             return "bg-white text-black";
+        case "ingen bakgrund":
+            return "bg-transparent text-black";
         default:
-            return "bg-blue text-white";
+            return "bg-transparent text-black";
     }
 }

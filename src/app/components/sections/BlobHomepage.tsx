@@ -5,7 +5,7 @@ import { BlobHomepageProps } from "../../utils/interfaces";
 import ButtonGroup from "../elements/ButtonGroup";
 import StyledImage from "../elements/StyledImage";
 
-export default function BlobHomepage({heading, anchor, content, image, buttons, imagePosition, blobColor, layout }: BlobHomepageProps) {
+export default function BlobHomepage({heading, anchor, content, image, buttons, imagePosition, blobColor, background, layout }: BlobHomepageProps) {
 
     let imgLeft = false
     if (imagePosition === 'Left') {
@@ -13,7 +13,7 @@ export default function BlobHomepage({heading, anchor, content, image, buttons, 
     }
 
     return (
-        <section id={anchor} className={`relative py-8 bg-white`}>
+        <section id={anchor} className={`relative py-8 ${blobMapper(background)}`}>
             <div className={`${blobMapper(blobColor)} rounded-xl flex flex-col md:flex-row p-6 md:p-12 py-4 mx-4 md:mx-24 text-center md:text-left items-center`}>
                 {image.data && imgLeft && (
                     <div className="w-full h-full mr-12 mb-4 mx-auto max-w-xl">
