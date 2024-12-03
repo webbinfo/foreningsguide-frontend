@@ -75,8 +75,8 @@ export default async function RootLayout({
   return (
     <html lang='sv'>
       <head>
-        <meta name="robots" content="noindex" />
         <meta charSet="UTF-8" />
+        <link rel="sitemap" type="application/xml" title="Sitemap" href="https://cms.foreningsguide.studentlivet.se/api/sitemap/index.xml"></link>
 
         {/* Google Analytics Script */}
         <Script
